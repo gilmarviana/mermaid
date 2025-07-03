@@ -153,12 +153,29 @@
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/sw.js')
                     .then((registration) => {
-                        console.log('SW registrado: ', registration);
+                        console.log('SW registrado com sucesso: ', registration);
+                        
+                        // Verificar se há atualização
+                        registration.addEventListener('updatefound', () => {
+                            console.log('Nova versão do SW encontrada');
+                        });
+                        
+                        // Verificar se o SW está ativo
+                        if (registration.active) {
+                            console.log('SW está ativo');
+                        }
                     })
                     .catch((registrationError) => {
-                        console.log('SW falhou: ', registrationError);
+                        console.error('SW falhou no registro: ', registrationError);
                     });
+                
+                // Escutar mudanças no SW
+                navigator.serviceWorker.addEventListener('controllerchange', () => {
+                    console.log('Novo SW assumiu controle');
+                });
             });
+        } else {
+            console.log('Service Worker não é suportado');
         }
         
         // Instalação da PWA
@@ -167,13 +184,22 @@
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            console.log('PWA pode ser instalada');
+            console.log('PWA pode ser instalada - beforeinstallprompt disparado');
+            
+            // Opcional: mostrar um botão personalizado para instalar
+            // showInstallButton();
         });
         
         // Evento quando a PWA é instalada
         window.addEventListener('appinstalled', (evt) => {
             console.log('PWA instalada com sucesso');
+            deferredPrompt = null;
         });
+
+        // Verificar se já está instalado
+        if (window.matchMedia('(display-mode: standalone)').matches) {
+            console.log('PWA já está instalado e rodando em modo standalone');
+        }
 
         // Redirecionamento após 2 segundos
         setTimeout(() => {
