@@ -9,7 +9,20 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}']
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/portfoliocv-27173\.bubbleapps\.io\/.*/i,
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'bubble-app-cache',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 60 * 60 * 24 * 30 // 30 dias
+              }
+            }
+          }
+        ]
       },
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
@@ -21,55 +34,22 @@ export default defineConfig({
         display: 'standalone',
         orientation: 'portrait-primary',
         start_url: '/',
+        scope: '/',
         icons: [
           {
-            src: 'https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=72&h=72&auto=compress&dpr=1&fit=max',
-            sizes: '72x72',
-            type: 'image/jpeg'
-          },
-          {
-            src: 'https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=96&h=96&auto=compress&dpr=1&fit=max',
-            sizes: '96x96',
-            type: 'image/jpeg'
-          },
-          {
-            src: 'https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=128&h=128&auto=compress&dpr=1&fit=max',
-            sizes: '128x128',
-            type: 'image/jpeg'
-          },
-          {
-            src: 'https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=144&h=144&auto=compress&dpr=1&fit=max',
-            sizes: '144x144',
-            type: 'image/jpeg'
-          },
-          {
-            src: 'https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=152&h=152&auto=compress&dpr=1&fit=max',
-            sizes: '152x152',
-            type: 'image/jpeg'
-          },
-          {
-            src: 'https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=192&h=192&auto=compress&dpr=1&fit=max',
+            src: '/icons/icon-192x192.png',
             sizes: '192x192',
-            type: 'image/jpeg'
+            type: 'image/png',
+            purpose: 'any maskable'
           },
           {
-            src: 'https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=384&h=384&auto=compress&dpr=1&fit=max',
-            sizes: '384x384',
-            type: 'image/jpeg'
-          },
-          {
-            src: 'https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=512&h=512&auto=compress&dpr=1&fit=max',
+            src: '/icons/icon-512x512.png',
             sizes: '512x512',
-            type: 'image/jpeg'
+            type: 'image/png',
+            purpose: 'any maskable'
           }
         ]
-      },
-      strategies: 'injectManifest',
-      injectManifest: {
-        injectionPoint: undefined
-      },
-      filename: 'sw.js',
-      srcDir: 'public'
+      }
     })
   ],
 })

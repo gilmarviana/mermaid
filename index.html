@@ -40,22 +40,16 @@ Atualmente estudando e desenvolvendo aplicações com Inteligencia Artificial e 
     <meta name="twitter:url" content="gmvianainformatica.com.br">
         <link rel="icon" href="https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=256&h=256&auto=compress&dpr=1&fit=max" type="image/x-icon">
     
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.webmanifest">
+    
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#00aed1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Gilmar Martinez Viana">
     <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- Metadados para redes sociais (Open Graph - Facebook, LinkedIn, etc.) -->
-    <meta property="og:title" content="Portfolio Desenvolvedor Bubble / React / Low code - Gilmar Martinez Viana">
-    <meta property="og:description" content="Atualmente desenvolvedor LowCode (Bubble, FlutterFlow e Wordpress).
-Possuo conhecimento também em HTML, CSS, JavaScript, juntamente com noções de UI, UX e Acessibilidade ao Usuário. 
-Experiência em investigar bugs e fazer correções em sistemas.
-Atualmente estudando e desenvolvendo aplicações com Inteligencia Artificial e Integrações com N8N, TypeBot">
-    <meta property="og:image" content="https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=256&h=256&auto=compress&dpr=1&fit=max">
-    <meta property="og:url" content="http://gmvianainformatica.com.br/">
-    <meta property="og:type" content="Portfolio">
+    <link rel="apple-touch-icon" href="https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=192&h=192&auto=compress&dpr=1&fit=max">
 
     <style>
         body {
@@ -165,36 +159,6 @@ Atualmente estudando e desenvolvendo aplicações com Inteligencia Artificial e 
     <script type="module" src="/src/main.jsx"></script>
     
     <script>
-        // Registro do Service Worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then((registration) => {
-                        console.log('SW registrado com sucesso: ', registration);
-                        
-                        // Verificar se há atualização
-                        registration.addEventListener('updatefound', () => {
-                            console.log('Nova versão do SW encontrada');
-                        });
-                        
-                        // Verificar se o SW está ativo
-                        if (registration.active) {
-                            console.log('SW está ativo');
-                        }
-                    })
-                    .catch((registrationError) => {
-                        console.error('SW falhou no registro: ', registrationError);
-                    });
-                
-                // Escutar mudanças no SW
-                navigator.serviceWorker.addEventListener('controllerchange', () => {
-                    console.log('Novo SW assumiu controle');
-                });
-            });
-        } else {
-            console.log('Service Worker não é suportado');
-        }
-        
         // Instalação da PWA
         let deferredPrompt;
         
@@ -202,9 +166,6 @@ Atualmente estudando e desenvolvendo aplicações com Inteligencia Artificial e 
             e.preventDefault();
             deferredPrompt = e;
             console.log('PWA pode ser instalada - beforeinstallprompt disparado');
-            
-            // Opcional: mostrar um botão personalizado para instalar
-            // showInstallButton();
         });
         
         // Evento quando a PWA é instalada
