@@ -4,16 +4,33 @@ import './App.css'
 function App() {
   const [showInstallPrompt, setShowInstallPrompt] = useState(false)
 
-  // Escutar evento para mostrar prompt de instalação
   useEffect(() => {
-    const handleShowInstallPrompt = () => {
-      setShowInstallPrompt(true)
+    // Verificar se o PWA pode ser instalado
+    const handleBeforeInstallPrompt = (e) => {
+      e.preventDefault()
+      window.deferredPrompt = e
+      
+      // Mostrar botão de instalação após 2 segundos
+      setTimeout(() => {
+        if (window.deferredPrompt) {
+          setShowInstallPrompt(true)
+        }
+      }, 2000)
     }
-    
-    window.addEventListener('showInstallPrompt', handleShowInstallPrompt)
-    
+
+    // Evento quando a PWA é instalada
+    const handleAppInstalled = () => {
+      console.log('PWA instalada com sucesso!')
+      window.deferredPrompt = null
+      setShowInstallPrompt(false)
+    }
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
+    window.addEventListener('appinstalled', handleAppInstalled)
+
     return () => {
-      window.removeEventListener('showInstallPrompt', handleShowInstallPrompt)
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
+      window.removeEventListener('appinstalled', handleAppInstalled)
     }
   }, [])
 
@@ -51,12 +68,21 @@ function App() {
 
       <div className="contact">
         <h2>Contato</h2>
-        <p>Portfolio completo: <a href="https://portfoliocv-27173.bubbleapps.io/" target="_blank" rel="noopener noreferrer" className="portfolio-link">Ver Portfolio</a></p>
+        <p>
+          <a 
+            href="https://portfoliocv-27173.bubbleapps.io/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="portfolio-link"
+          >
+            Ver Portfolio Completo
+          </a>
+        </p>
       </div>
 
       {showInstallPrompt && (
         <div className="install-prompt">
-          <p>Instale este app para uma melhor experiência!</p>
+          <p>📱 Instale este app para uma melhor experiência!</p>
           <button onClick={handleInstallClick} className="install-button">
             Instalar App
           </button>

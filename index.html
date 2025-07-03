@@ -1,146 +1,202 @@
-<html>
-    <head>
-    <!-- Título da página -->
-    <title>Portfolio Desenvolvedor Bubble / React / Low code - Gilmar Martinez Viana</title>
-
-    <!-- Descrição da página (importante para SEO) -->
-    <meta name="description" content="Atualmente desenvolvedor LowCode (Bubble, FlutterFlow, React e Wordpress).
-Possuo conhecimento também em HTML, CSS, JavaScript, juntamente com noções de UI, UX e Acessibilidade ao Usuário. 
-Experiência em investigar bugs e fazer correções em sistemas.
-Atualmente estudando e desenvolvendo aplicações com Inteligencia Artificial e Integrações com N8N, TypeBot">
-
-    <!-- Palavras-chave para SEO -->
-    <meta name="keywords" content="desenvolvedor lowcode, desenvolvedor low-code, desenvolvedor bubble">
-
-    <!-- Autor da página -->
-    <meta name="author" content="Gilmar Martinez Viana">
-
-    <!-- URL canônica (para evitar conteúdo duplicado) -->
-    <link rel="canonical" href="https://gmvianainformatica.com.br/">
-
-    <!-- Metadados para redes sociais (Open Graph - Facebook, LinkedIn, etc.) -->
-    <meta property="og:title" content="Portfolio Desenvolvedor Bubble / React / Low code - Gilmar Martinez Viana">
-    <meta property="og:description" content="Atualmente desenvolvedor LowCode (Bubble, FlutterFlow, React e Wordpress).
-Possuo conhecimento também em HTML, CSS, JavaScript, juntamente com noções de UI, UX e Acessibilidade ao Usuário. 
-Experiência em investigar bugs e fazer correções em sistemas.
-Atualmente estudando e desenvolvendo aplicações com Inteligencia Artificial e Integrações com N8N, TypeBot">
-    <meta property="og:image" content="https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=256&h=256&auto=compress&dpr=1&fit=max">
-    <meta property="og:url" content="https://gmvianainformatica.com.br">
-    <meta property="og:type" content="Portfolio">
-
-    <!-- Metadados para Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Portfolio Desenvolvedor Bubble / React / Low code - Gilmar Martinez Viana">
-    <meta name="twitter:description" content="Atualmente desenvolvedor LowCode (Bubble, FlutterFlow e Wordpress).
-Possuo conhecimento também em HTML, CSS, JavaScript, juntamente com noções de UI, UX e Acessibilidade ao Usuário. 
-Experiência em investigar bugs e fazer correções em sistemas.
-Atualmente estudando e desenvolvendo aplicações com Inteligencia Artificial e Integrações com N8N, TypeBot">
-    <meta name="twitter:image" content="https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=256&h=256&auto=compress&dpr=1&fit=max">
-    <meta name="twitter:url" content="https://gmvianainformatica.com.br">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="/icons/icon-192x192.png" type="image/png">
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.webmanifest">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Gilmar Martinez Viana</title>
     
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#00aed1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Gilmar Martinez Viana">
+    <meta name="apple-mobile-web-app-title" content="Gilmar Martinez">
     <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.webmanifest">
+    
+    <!-- Icons -->
+    <link rel="icon" href="/icons/icon-192x192.png" type="image/png">
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-
-    <!-- Viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
+    <!-- SEO -->
+    <meta name="description" content="Portfolio de Gilmar Martinez Viana - Desenvolvedor Low Code especializado em Bubble, FlutterFlow, React e WordPress">
+    <meta name="keywords" content="desenvolvedor lowcode, bubble, flutterflow, react, wordpress">
+    <meta name="author" content="Gilmar Martinez Viana">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Portfolio Gilmar Martinez Viana">
+    <meta property="og:description" content="Desenvolvedor Low Code especializado em Bubble, FlutterFlow, React e WordPress">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gmvianainformatica.com.br">
+    
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, rgba(130,87,230,1) 0%, rgba(2, 5, 211, 1) 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #8257e6 0%, #0205d3 100%);
             color: white;
             min-height: 100vh;
+            overflow: hidden;
         }
-
-        #root {
-            min-height: 100vh;
+        
+        .loading-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease-out;
         }
-
-        .App {
-            text-align: center;
-            padding: 2rem;
+        
+        .loading-container.fade-out {
+            opacity: 0;
         }
-
-        .App h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            object-fit: cover;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-
-        .App p {
+        
+        .subtitle {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 30px;
             opacity: 0.9;
         }
-
-        .portfolio-link {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
-
-        .portfolio-link:hover {
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .progress-bar {
+            width: 200px;
+            height: 4px;
             background: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
+            border-radius: 2px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #00aed1;
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .iframe-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
+        
+        .iframe-container.show {
+            opacity: 1;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        #root {
+            display: none;
         }
     </style>
 </head>
-
 <body>
+    <!-- Tela de Loading -->
+    <div class="loading-container" id="loading">
+        <img src="https://c6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io/cdn-cgi/image/w=256,h=256,f=auto,dpr=1,fit=contain/f1720976231275x392427182868092300/logo.jpg" alt="Gilmar Martinez" class="logo">
+        <h1 class="title">Gilmar Martinez</h1>
+        <p class="subtitle">Desenvolvedor Low Code</p>
+        <div class="spinner"></div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress"></div>
+        </div>
+    </div>
+
+    <!-- Container do iframe -->
+    <div class="iframe-container" id="iframe-container">
+        <iframe src="https://portfoliocv-27173.bubbleapps.io/" frameborder="0"></iframe>
+    </div>
+
     <div id="root"></div>
-    
     <script type="module" src="/src/main.jsx"></script>
     
     <script>
-        // Instalação da PWA
+        // PWA Installation
         let deferredPrompt;
         
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
-            window.deferredPrompt = e;
-            console.log('PWA pode ser instalada - beforeinstallprompt disparado');
-            // Mostrar botão de instalação após 3 segundos
-            setTimeout(() => {
-                if (window.deferredPrompt) {
-                    window.showInstallPrompt = true;
-                    // Disparar evento para o React
-                    window.dispatchEvent(new CustomEvent('showInstallPrompt'));
-                }
-            }, 3000);
+            deferredPrompt = e;
+            console.log('PWA pode ser instalada');
         });
         
-        // Evento quando a PWA é instalada
         window.addEventListener('appinstalled', (evt) => {
             console.log('PWA instalada com sucesso');
             deferredPrompt = null;
         });
 
-        // Verificar se já está instalado
-        if (window.matchMedia('(display-mode: standalone)').matches) {
-            console.log('PWA já está instalado e rodando em modo standalone');
-        }
+        // Loading Animation
+        const loading = document.getElementById('loading');
+        const iframeContainer = document.getElementById('iframe-container');
+        const progress = document.getElementById('progress');
+        
+        let progressValue = 0;
+        const progressInterval = setInterval(() => {
+            progressValue += 2;
+            progress.style.width = progressValue + '%';
+            
+            if (progressValue >= 100) {
+                clearInterval(progressInterval);
+                
+                // Fade out da tela de loading
+                loading.classList.add('fade-out');
+                
+                // Fade in do iframe
+                iframeContainer.classList.add('show');
+                
+                // Remove a tela de loading após a transição
+                setTimeout(() => {
+                    loading.style.display = 'none';
+                }, 500);
+            }
+        }, 80); // 4 segundos total (80ms * 50 = 4000ms)
     </script>
 </body>
 </html>
