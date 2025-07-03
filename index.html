@@ -21,10 +21,17 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="https://50c5f772afaf41b913fc34f59c79cf31.cdn.bubble.io/cdn-cgi/image/w=96,h=96,f=auto,dpr=1,fit=contain/f1746346933633x618199983378009900/ev-removebg-preview.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://50c5f772afaf41b913fc34f59c79cf31.cdn.bubble.io/cdn-cgi/image/w=32,h=32,f=auto,dpr=1,fit=contain/f1746346933633x618199983378009900/ev-removebg-preview.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://50c5f772afaf41b913fc34f59c79cf31.cdn.bubble.io/cdn-cgi/image/w=16,h=16,f=auto,dpr=1,fit=contain/f1746346933633x618199983378009900/ev-removebg-preview.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://50c5f772afaf41b913fc34f59c79cf31.cdn.bubble.io/cdn-cgi/image/w=180,h=180,f=auto,dpr=1,fit=contain/f1746346933633x618199983378009900/ev-removebg-preview.png">
     <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Evangelista Virtual">
+    <meta name="mobile-web-app-capable" content="yes">
 
     <!-- Metadados para redes sociais (Open Graph - Facebook, LinkedIn, etc.) -->
     <meta property="og:title" content="Evangelista Virtual">
@@ -36,5 +43,36 @@
 
 <body style="margin:0px;padding:0px;overflow:hidden">
     <iframe src="https://bibliaonline-90421.bubbleapps.io/" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>
+    
+    <script>
+        // Registro do Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('SW registrado: ', registration);
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW falhou: ', registrationError);
+                    });
+            });
+        }
+        
+        // Instalação da PWA
+        let deferredPrompt;
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Aqui você pode mostrar um botão para instalar a PWA
+            console.log('PWA pode ser instalada');
+        });
+        
+        // Evento quando a PWA é instalada
+        window.addEventListener('appinstalled', (evt) => {
+            console.log('PWA instalada com sucesso');
+        });
+    </script>
 </body>
 </html>
