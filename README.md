@@ -1,12 +1,72 @@
-# React + Vite
+# Portfólio Gilmar Martinez Viana
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfólio pessoal desenvolvido como PWA (Progressive Web App) para exibir trabalhos e experiência profissional.
 
-Currently, two official plugins are available:
+## Sobre
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este é o portfólio de **Gilmar Martinez Viana**, desenvolvedor Low Code especializado em:
+- **Bubble.io** - Desenvolvimento de aplicações web
+- **FlutterFlow** - Desenvolvimento de aplicações mobile
+- **WordPress** - Desenvolvimento de sites e blogs
+- **HTML, CSS, JavaScript** - Desenvolvimento frontend
+- **React** - Desenvolvimento de aplicações modernas
+- **Inteligência Artificial** - Integrações e desenvolvimento com IA
+- **N8N e TypeBot** - Automações e chatbots
 
-## Expanding the ESLint configuration
+## Tecnologias Utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React 19** - Framework JavaScript
+- **Vite** - Build tool e dev server
+- **PWA** - Progressive Web App
+- **Service Worker** - Cache e funcionalidades offline
+- **Bubble.io** - Portfólio hospedado via iframe
+
+## Funcionalidades
+
+- ✅ PWA instalável
+- ✅ Cache offline
+- ✅ Tela de loading personalizada
+- ✅ SEO otimizado
+- ✅ Responsivo
+- ✅ Metadados para redes sociais
+
+## Como Executar
+
+```bash
+# Instalar dependências
+npm install
+
+# Executar em desenvolvimento
+npm run dev
+
+# Build para produção
+npm run build
+
+# Preview do build
+npm run preview
+```
+
+## Estrutura do Projeto
+
+```
+mermaid/
+├── public/
+│   ├── site.webmanifest    # Manifesto PWA
+│   └── sw.js              # Service Worker
+├── src/
+│   ├── App.jsx            # Componente principal
+│   ├── main.jsx           # Entry point
+│   └── components/        # Componentes React
+├── index.html             # HTML principal
+├── vite.config.js         # Configuração Vite
+└── package.json           # Dependências
+```
+
+## Contato
+
+- **Website**: [gmvianainformatica.com.br](http://gmvianainformatica.com.br/)
+- **Portfólio**: [portfoliocv-27173.bubbleapps.io](https://portfoliocv-27173.bubbleapps.io/)
+
+## Licença
+
+Este projeto é de uso pessoal e não possui licença comercial. 

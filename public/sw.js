@@ -1,4 +1,4 @@
-const CACHE_NAME = 'evangelista-virtual-v3';
+const CACHE_NAME = 'portfolio-gilmar-martinez-v1';
 const urlsToCache = [
   '/',
   '/index.html',
