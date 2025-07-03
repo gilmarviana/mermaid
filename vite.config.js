@@ -8,9 +8,6 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}']
-      },
       manifest: {
         name: 'Portfolio Gilmar Martinez Viana',
         short_name: 'Gilmar Martinez',
