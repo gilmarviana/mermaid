@@ -12,27 +12,56 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}']
       },
       manifest: {
+        id: "/",
         name: 'Portfolio Gilmar Martinez Viana',
         short_name: 'Gilmar Martinez',
         description: 'Portfolio Desenvolvedor Low Code - Bubble, FlutterFlow, WordPress, React',
         theme_color: '#00aed1',
         background_color: '#00aed1',
         display: 'standalone',
+        display_override: ["window-controls-overlay", "standalone"],
         orientation: 'portrait-primary',
         start_url: '/',
         scope: '/',
         icons: [
           {
-            src: '/icons/logo.jpg',
-            sizes: '256x256',
-            type: 'image/jpeg',
-            purpose: 'any maskable'
+            src: '/icons/icon-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'any'
           },
           {
-            src: '/icons/logo.jpg',
+            src: '/icons/icon-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'maskable'
+          },
+          {
+            src: '/icons/icon-512x512.png',
             sizes: '512x512',
-            type: 'image/jpeg',
-            purpose: 'any maskable'
+            type: 'image/png',
+            purpose: 'any'
+          },
+          {
+            src: '/icons/icon-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable'
+          }
+        ],
+        launch_handler: {
+          client_mode: "auto"
+        },
+        screenshots: [
+          {
+            src: "/icons/icon-192x192.png",
+            sizes: "192x192",
+            type: "image/png"
+          },
+          {
+            src: "/icons/icon-512x512.png",
+            sizes: "512x512",
+            type: "image/png"
           }
         ]
       }
