@@ -1,7 +1,7 @@
 {
-  "name": "Evangelista Virtual",
-  "short_name": "Evangelista",
-  "description": "Evangelista Virtual - Sua bíblia online",
+  "name": "Portfolio Gilmar Martinez Viana",
+  "short_name": "Gilmar Martinez",
+  "description": "Portfolio Desenvolvedor Low Code - Bubble, FlutterFlow, WordPress, React",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#00aed1",
@@ -9,54 +9,54 @@
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "pt-BR",
-  "categories": ["education", "books", "religion"],
+  "categories": ["business", "productivity", "technology"],
   "icons": [
     {
-      "src": "https://50c5f772afaf41b913fc34f59c79cf31.cdn.bubble.io/cdn-cgi/image/w=72,h=72,f=auto,dpr=1,fit=contain/f1746346933633x618199983378009900/ev-removebg-preview.png",
+      "src": "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=72&h=72&auto=compress&dpr=1&fit=max",
       "sizes": "72x72",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     },
     {
-      "src": "https://50c5f772afaf41b913fc34f59c79cf31.cdn.bubble.io/cdn-cgi/image/w=96,h=96,f=auto,dpr=1,fit=contain/f1746346933633x618199983378009900/ev-removebg-preview.png",
+      "src": "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=96&h=96&auto=compress&dpr=1&fit=max",
       "sizes": "96x96",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     },
     {
-      "src": "https://50c5f772afaf41b913fc34f59c79cf31.cdn.bubble.io/cdn-cgi/image/w=128,h=128,f=auto,dpr=1,fit=contain/f1746346933633x618199983378009900/ev-removebg-preview.png",
+      "src": "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=128&h=128&auto=compress&dpr=1&fit=max",
       "sizes": "128x128",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     },
     {
-      "src": "https://50c5f772afaf41b913fc34f59c79cf31.cdn.bubble.io/cdn-cgi/image/w=144,h=144,f=auto,dpr=1,fit=contain/f1746346933633x618199983378009900/ev-removebg-preview.png",
+      "src": "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=144&h=144&auto=compress&dpr=1&fit=max",
       "sizes": "144x144",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     },
     {
-      "src": "https://50c5f772afaf41b913fc34f59c79cf31.cdn.bubble.io/cdn-cgi/image/w=152,h=152,f=auto,dpr=1,fit=contain/f1746346933633x618199983378009900/ev-removebg-preview.png",
+      "src": "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=152&h=152&auto=compress&dpr=1&fit=max",
       "sizes": "152x152",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     },
     {
-      "src": "https://50c5f772afaf41b913fc34f59c79cf31.cdn.bubble.io/cdn-cgi/image/w=192,h=192,f=auto,dpr=1,fit=contain/f1746346933633x618199983378009900/ev-removebg-preview.png",
+      "src": "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=192&h=192&auto=compress&dpr=1&fit=max",
       "sizes": "192x192",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     },
     {
-      "src": "https://50c5f772afaf41b913fc34f59c79cf31.cdn.bubble.io/cdn-cgi/image/w=384,h=384,f=auto,dpr=1,fit=contain/f1746346933633x618199983378009900/ev-removebg-preview.png",
+      "src": "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=384&h=384&auto=compress&dpr=1&fit=max",
       "sizes": "384x384",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     },
     {
-      "src": "https://50c5f772afaf41b913fc34f59c79cf31.cdn.bubble.io/cdn-cgi/image/w=512,h=512,f=auto,dpr=1,fit=contain/f1746346933633x618199983378009900/ev-removebg-preview.png",
+      "src": "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc6f442293fa73eb40b2178fa58fd3742.cdn.bubble.io%2Ff1720976231275x392427182868092300%2Flogo.jpg?w=512&h=512&auto=compress&dpr=1&fit=max",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     }
   ]
