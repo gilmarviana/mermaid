@@ -39,10 +39,111 @@
     <meta property="og:image" content="https://triadeiptv.com.br/apk/ev.png?w=256&h=256&auto=compress&dpr=1&fit=max">
     <meta property="og:url" content="https://evangelistavirtual.com.br">
     <meta property="og:type" content="Evangelista Virtual">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #00aed1 0%, #00aed1  100%);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .loading-container {
+            text-align: center;
+            z-index: 1000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #00aed1 0%, #00aed1 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loading-container.fade-out {
+            opacity: 0;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .iframe-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
+
+        .iframe-container.show {
+            opacity: 1;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
 </head>
 
-<body style="margin:0px;padding:0px;overflow:hidden">
-    <iframe src="https://bibliaonline-90421.bubbleapps.io/" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>
+<body>
+    <!-- Tela de Loading -->
+    <div class="loading-container" id="loading">
+        <img src="https://50c5f772afaf41b913fc34f59c79cf31.cdn.bubble.io/cdn-cgi/image/w=120,h=120,f=auto,dpr=1,fit=contain/f1746346933633x618199983378009900/ev-removebg-preview.png" alt="Evangelista Virtual" class="logo">
+        <h1 class="title">Evangelista Virtual</h1>
+        <p class="subtitle">Sua Bíblia Online</p>
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Container do iframe -->
+    <div class="iframe-container" id="iframe-container">
+        <iframe src="https://bibliaonline-90421.bubbleapps.io/" frameborder="0"></iframe>
+    </div>
     
     <script type="module" src="/src/main.jsx"></script>
     
@@ -66,8 +167,6 @@
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            
-            // Aqui você pode mostrar um botão para instalar a PWA
             console.log('PWA pode ser instalada');
         });
         
@@ -75,6 +174,23 @@
         window.addEventListener('appinstalled', (evt) => {
             console.log('PWA instalada com sucesso');
         });
+
+        // Redirecionamento após 2 segundos
+        setTimeout(() => {
+            const loading = document.getElementById('loading');
+            const iframeContainer = document.getElementById('iframe-container');
+            
+            // Fade out da tela de loading
+            loading.classList.add('fade-out');
+            
+            // Fade in do iframe
+            iframeContainer.classList.add('show');
+            
+            // Remove a tela de loading após a transição
+            setTimeout(() => {
+                loading.style.display = 'none';
+            }, 500);
+        }, 2000);
     </script>
 </body>
 </html>
