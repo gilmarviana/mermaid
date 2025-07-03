@@ -155,20 +155,6 @@
     <script type="module" src="/src/main.jsx"></script>
     
     <script>
-        // PWA Installation
-        let deferredPrompt;
-        
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            console.log('PWA pode ser instalada');
-        });
-        
-        window.addEventListener('appinstalled', (evt) => {
-            console.log('PWA instalada com sucesso');
-            deferredPrompt = null;
-        });
-
         // Loading Animation
         const loading = document.getElementById('loading');
         const iframeContainer = document.getElementById('iframe-container');
