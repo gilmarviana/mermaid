@@ -1,9 +1,8 @@
-const CACHE_NAME = 'evangelista-virtual-v2';
+const CACHE_NAME = 'evangelista-virtual-v3';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/site.webmanifest',
-  'https://bibliaonline-90421.bubbleapps.io/'
+  '/site.webmanifest'
 ];
 
 // Instalação do Service Worker
@@ -44,11 +43,6 @@ self.addEventListener('activate', (event) => {
 
 // Interceptação de requisições
 self.addEventListener('fetch', (event) => {
-  // Não interceptar requisições para o iframe externo
-  if (event.request.url.includes('bubbleapps.io')) {
-    return;
-  }
-
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
@@ -58,27 +52,7 @@ self.addEventListener('fetch', (event) => {
         }
         
         // Se não está em cache, faz a requisição
-        return fetch(event.request).then((response) => {
-          // Não cachear se não for uma resposta válida
-          if (!response || response.status !== 200 || response.type !== 'basic') {
-            return response;
-          }
-
-          // Clona a resposta para cache
-          const responseToCache = response.clone();
-          caches.open(CACHE_NAME)
-            .then((cache) => {
-              cache.put(event.request, responseToCache);
-            });
-
-          return response;
-        });
-      })
-      .catch(() => {
-        // Fallback para páginas offline
-        if (event.request.destination === 'document') {
-          return caches.match('/index.html');
-        }
+        return fetch(event.request);
       })
   );
 });
